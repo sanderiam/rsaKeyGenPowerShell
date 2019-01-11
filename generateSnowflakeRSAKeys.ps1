@@ -85,8 +85,7 @@ $timestamp = Get-Date -Format o | foreach {$_ -replace ":", "."}
 $fullPrivateKeyPath = "$($PRIVATEKEYFILEDIR)$($UserNameForKey)-$($timestamp)-privateKey.pem"
 $fullPublicKeyPath  = "$($PUBLICKEYFILEDIR)$($UserNameForKey)-$($timestamp)-publicKey.pem"
 
-# Generate a 1024-bit key.  Chilkat RSA supports
-# key sizes ranging from 512 bits to 4096 bits.
+# Generate a 2048 bit key.  Chilkat RSA supports key sizes ranging from 512 bits to 4096 bits.
 $success = $rsa.GenerateKey(2048)
 if ($success -ne $true) {
     Out-Host "FATAL ERROR:: "
